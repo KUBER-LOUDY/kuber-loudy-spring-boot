@@ -40,5 +40,6 @@ out/
 .vscode/
 
 ### properties ###
-.properties
+*.properties
+*.yml
 /src/main/resources/Wallet_kuberLoudy/
