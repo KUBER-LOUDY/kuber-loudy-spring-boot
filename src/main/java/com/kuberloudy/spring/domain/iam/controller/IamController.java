@@ -19,14 +19,14 @@ public class IamController {
     private final iamService iamService;
 
     @PostMapping("/key-to-rsa")
-    public ResponseEntity<?> KeyToRSA(@RequestBody IamUserTest iamUserTest) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
-        iamService.transitionIamUsertoRSA(iamUserTest);
+    public ResponseEntity<?> KeyToRSA(@RequestBody IamUserKey iamUserKey) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
+        iamService.transitionIamUsertoRSA(iamUserKey);
         return new ResponseEntity<String>("reponse", HttpStatus.OK);
     }
 
     @GetMapping("/rsa-to-key")
-    public void RSAtoKey(@RequestBody IamUserTest iamUserTest) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, InvalidKeyException {
-        iamService.transitionRSAtoIam(iamUserTest);
+    public void RSAtoKey(@RequestBody IamUserKey iamUserKey) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, InvalidKeyException {
+        iamService.transitionRSAtoIam(iamUserKey);
     }
 
     @GetMapping("/iamusers")

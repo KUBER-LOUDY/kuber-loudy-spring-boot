@@ -19,16 +19,16 @@ public class iamService {
     private final rsaUtil rsaUtil;
 
     @Transactional
-    public ResponseEntity<?> transitionIamUsertoRSA(IamUserTest iamUserTest) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, InvalidKeyException {
-        rsaUtil.encryptRSA(iamUserTest.getAccessKey());
-        rsaUtil.encryptRSA(iamUserTest.getSecretKey());
+    public ResponseEntity<?> transitionIamUsertoRSA(IamUserKey iamUserKey) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, InvalidKeyException {
+        rsaUtil.encryptRSA(iamUserKey.getAccessKey());
+        rsaUtil.encryptRSA(iamUserKey.getSecretKey());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @Transactional
-    public ResponseEntity<?> transitionRSAtoIam(IamUserTest iamUserTest) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, InvalidKeyException {
-        rsaUtil.decryptRSA(iamUserTest.getAccessKey());
-        rsaUtil.decryptRSA(iamUserTest.getSecretKey());
+    public ResponseEntity<?> transitionRSAtoIam(IamUserKey iamUserKey) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, InvalidKeyException {
+        rsaUtil.decryptRSA(iamUserKey.getAccessKey());
+        rsaUtil.decryptRSA(iamUserKey.getSecretKey());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
