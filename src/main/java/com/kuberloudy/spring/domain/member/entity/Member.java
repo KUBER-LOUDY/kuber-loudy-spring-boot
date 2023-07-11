@@ -20,17 +20,16 @@ public class Member {
     private String name;
 
     @Column(length = 200)
-    @Nullable
-    private String password;
+    private String email;
 
     @Enumerated
     @Column(nullable = false, length = 100)
     private Provider provider;
 
     @Builder
-    public Member(String name, @Nullable String password, Provider provider) {
+    public Member(String name, String email, Provider provider) {
         this.name = name;
-        this.password = password;
+        this.email = email;
         this.provider = provider;
     }
 }

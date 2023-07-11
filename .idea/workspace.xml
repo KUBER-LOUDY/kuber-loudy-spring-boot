@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94a6491-9edb-4450-b08a-a6007ebd81dd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kuberloudy/spring/domain/member/entity/Password.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kuberloudy/spring/domain/member/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kuberloudy/spring/domain/member/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kuberloudy/spring/domain/member/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kuberloudy/spring/domain/member/entity/Member.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +35,18 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,6 +91,7 @@
       <updated>1685690796382</updated>
       <workItem from="1685690799363" duration="974000" />
       <workItem from="1685706805353" duration="156000" />
+      <workItem from="1689059228295" duration="3000" />
     </task>
     <servers />
   </component>
