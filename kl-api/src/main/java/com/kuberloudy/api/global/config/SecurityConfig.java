@@ -1,4 +1,4 @@
-package com.kuberloudy.spring.global.config;
+package com.kuberloudy.api.global.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -21,9 +21,12 @@ public class SecurityConfig {
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authz)->authz
-                        .anyRequest().authenticated()
+                        .requestMatchers("/**").permitAll()
+                        .anyRequest().permitAll()
                 )
-                .httpBasic(Customizer.withDefaults());
+                .httpBasic(Customizer.withDefaults())
+        ;
+
         return httpSecurity.build();
     }
 
