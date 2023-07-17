@@ -1,4 +1,4 @@
-package com.kuberloudy.api.member.entity;
+package com.kuberloudy.domain.member.entity;
 
 
 import jakarta.persistence.*;
@@ -17,6 +17,10 @@ public class Member {
 
     @Column(length = 200)
     private String name;
+
+    @OneToOne
+    @JoinColumn(name = "member_id")
+    private Password password;
 
     @Column(length = 200)
     private String email;

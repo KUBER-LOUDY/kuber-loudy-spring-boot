@@ -1,4 +1,4 @@
-package com.kuberloudy.api.member.entity;
+package com.kuberloudy.domain.member.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

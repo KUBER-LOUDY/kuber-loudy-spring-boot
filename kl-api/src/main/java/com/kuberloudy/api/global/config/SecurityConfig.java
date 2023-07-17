@@ -20,9 +20,12 @@ public class SecurityConfig {
         httpSecurity
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
+                .headers((headers) -> headers
+                        .frameOptions().sameOrigin()
+                )
                 .authorizeHttpRequests((authz)->authz
-                        .requestMatchers("/**").permitAll()
-                        .anyRequest().permitAll()
+                        .requestMatchers("/**", "/h2-console/**").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
         ;
