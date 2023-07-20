@@ -42,7 +42,8 @@ out/
 ### properties ###
 *.properties
 *.yml
-/src/main/resources/Wallet_kuberLoudy/
+/kl-api/src/main/resources/Wallet_kuberLoudy/
 
 
+kl-api/src/main/resources/application.yaml
 src/main/resources/oci

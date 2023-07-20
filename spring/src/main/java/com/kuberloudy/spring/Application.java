@@ -1,4 +1,4 @@
-package com.kuberloudy.spring;
+package com.kuberloudy.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
