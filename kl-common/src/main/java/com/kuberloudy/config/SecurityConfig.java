@@ -1,4 +1,4 @@
-package com.kuberloudy.api.global.config;
+package com.kuberloudy.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
-package com.kuberloudy.api.iam.entity;
+package com.kuberloudy.domain.iam.entity;
 
-import com.kuberloudy.api.member.entity.Member;
+import com.kuberloudy.domain.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
