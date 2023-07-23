@@ -22,4 +22,9 @@ public class MemberDomainService {
                 Member.builder().email(email).name(name).provider(provider).build()
         );
     }
+
+    public Member findMember(String email, String password) {
+        return memberRepository.findByEmailAndPassword_Password(email, password)
+                .orElseThrow(() -> new IllegalArgumentException("이메일 또는 비밀번호가 존재하지 않습니다."));
+    }
 }
