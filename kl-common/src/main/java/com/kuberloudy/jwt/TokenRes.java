@@ -5,8 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@Builder
 public class TokenRes {
     private String accessToken;
     private String refreshToken;
+
+    @Builder
+    public TokenRes(String accessToken, String refreshToken) {
+        this.accessToken = "Bearer " + accessToken;
+        this.refreshToken = refreshToken;
+    }
 }
