@@ -19,10 +19,15 @@ public class MemberService {
     private final JwtService jwtService;
 
     public MemberRes signIn(MemberReq memberReq) {
+
+        if (!memberReq.isValid()) {
+            throw new IllegalArgumentException("사용자에 대한 올바른 정보를 입력해주세요.");
+        }
+
         Member member = memberDomainService.createMember(
                 memberReq.getEmail(),
                 memberReq.getName(),
-                "",
+                memberReq.getPassword(),
                 Provider.valueOf(memberReq.getProvider())
         );
         return new MemberRes(memberReq.getName());
@@ -34,7 +39,7 @@ public class MemberService {
                 loginReq.getPassword());
         return jwtService.createJwt(
                 member.getEmail(),
-                member.getPassword().getPassword()
+                member.getPassword()
         );
     }
 }
