@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 @Component
-class JwtUtil {
+public class JwtUtil {
 
     private static final String AUTHORITIES_KEY = "role";
     private static final String BEARER_TYPE = "Bearer";
