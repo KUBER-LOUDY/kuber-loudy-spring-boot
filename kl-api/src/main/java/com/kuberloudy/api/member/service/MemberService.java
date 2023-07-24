@@ -9,6 +9,7 @@ import com.kuberloudy.domain.member.service.MemberDomainService;
 import com.kuberloudy.jwt.JwtService;
 import com.kuberloudy.jwt.TokenRes;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,16 +28,15 @@ public class MemberService {
         Member member = memberDomainService.createMember(
                 memberReq.getEmail(),
                 memberReq.getName(),
-                memberReq.getPassword(),
+                jwtService.encryptPassword(memberReq.getPassword()),
                 Provider.valueOf(memberReq.getProvider())
         );
         return new MemberRes(memberReq.getName());
     }
 
     public TokenRes logIn(LogInReq loginReq) {
-        Member member = memberDomainService.findMember(
-                loginReq.getEmail(),
-                loginReq.getPassword());
+        Member member = memberDomainService.findMemberByEmail(
+                loginReq.getEmail()).orElseThrow(() -> new IllegalArgumentException("가입하지 않는 이메일입니다."));
         return jwtService.createJwt(
                 member.getEmail(),
                 member.getPassword()
