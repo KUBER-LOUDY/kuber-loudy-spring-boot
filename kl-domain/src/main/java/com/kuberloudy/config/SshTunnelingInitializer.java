@@ -1,7 +1,5 @@
 package com.kuberloudy.config;
 
-
-
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
@@ -16,11 +14,11 @@ import java.util.Properties;
 
 import static java.lang.System.exit;
 
-@ConfigurationProperties(prefix = "ssh")
 @Slf4j
 @Component
 @Validated
 @Setter
+@ConfigurationProperties(prefix = "ssh")
 public class SshTunnelingInitializer {
 
     private String remoteJumpHost;
@@ -65,6 +63,7 @@ public class SshTunnelingInitializer {
             log.info("successfully connected to database");
 
         } catch (JSchException e){
+            log.error(e.getMessage());
             log.error("fail to make ssh tunneling");
             this.closeSSH();
             e.printStackTrace();
