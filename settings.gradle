@@ -1,1 +1,5 @@
 rootProject.name = 'spring'
+include 'kl-api'
+include 'kl-common'
+include 'kl-admin'
+include 'kl-domain'
