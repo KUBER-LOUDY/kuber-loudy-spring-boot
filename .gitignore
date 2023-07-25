@@ -47,3 +47,7 @@ out/
 
 kl-api/src/main/resources/application.yaml
 src/main/resources/oci
+
+kl-common/src/main/resources/
+
+kl-domain/src/main/resources/
