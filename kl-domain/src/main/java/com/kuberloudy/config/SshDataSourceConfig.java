@@ -1,6 +1,5 @@
-package com.kuberloudy.spring.global.config;
+package com.kuberloudy.config;
 
-import com.kuberloudy.spring.global.SshTunnelingInitializer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;

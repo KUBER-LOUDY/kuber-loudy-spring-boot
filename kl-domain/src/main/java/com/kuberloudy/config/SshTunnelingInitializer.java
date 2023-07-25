@@ -1,6 +1,16 @@
-package com.kuberloudy.spring.global;
+package com.kuberloudy.config;
 
 
+
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
+import jakarta.annotation.PreDestroy;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Properties;
 
@@ -9,7 +19,8 @@ import static java.lang.System.exit;
 @ConfigurationProperties(prefix = "ssh")
 @Slf4j
 @Component
-@Validated @Setter
+@Validated
+@Setter
 public class SshTunnelingInitializer {
 
     private String remoteJumpHost;
