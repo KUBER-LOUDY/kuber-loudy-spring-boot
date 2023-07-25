@@ -3,5 +3,5 @@ jar.enabled = true
 
 dependencies {
     implementation project(":kl-domain")
-    implementation project(":kl-common")
+    implementation project(":kl-admin")
 }
