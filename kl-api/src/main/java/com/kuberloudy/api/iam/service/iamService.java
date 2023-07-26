@@ -32,9 +32,4 @@ public class iamService {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @Transactional
-    public ResponseEntity<?> getIamUsers(){
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
 }

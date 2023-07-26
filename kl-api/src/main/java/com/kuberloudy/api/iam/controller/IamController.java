@@ -1,23 +1,28 @@
 package com.kuberloudy.api.iam.controller;
-
-import com.kuberloudy.api.iam.controller.dto.*;
+import com.kuberloudy.api.iam.config.AwsConfig;
 import com.kuberloudy.api.iam.service.iamService;
 import com.kuberloudy.api.iam.controller.dto.IamUserKey;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import software.amazon.awssdk.services.iam.IamClient;
+import software.amazon.awssdk.services.iam.model.ListUsersResponse;
 
 import javax.crypto.*;
 import java.io.IOException;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/iam",produces = "application/json; charset=utf8")
 public class IamController {
     private final iamService iamService;
+    private final IamClient iam;
 
     @PostMapping("/key-to-rsa")
     public ResponseEntity<?> KeyToRSA(@RequestBody IamUserKey iamUserKey) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
@@ -32,8 +37,8 @@ public class IamController {
 
     @GetMapping("/iamusers")
     public void IamUserList(){
-
-
+        ListUsersResponse userlist =iam.listUsers();
+        log.info(userlist.users().get(1).userName());
     }
 
 }
