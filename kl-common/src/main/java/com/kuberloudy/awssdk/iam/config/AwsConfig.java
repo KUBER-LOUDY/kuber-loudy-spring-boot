@@ -1,4 +1,4 @@
-package com.kuberloudy.api.iam.config;
+package com.kuberloudy.awssdk.iam.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,6 @@ import software.amazon.awssdk.services.iam.IamClient;
 @RequiredArgsConstructor
 public class AwsConfig {
     Region region = Region.AP_NORTHEAST_2;
-
     @Bean
     public IamClient iamClient() {
         return IamClient.builder()

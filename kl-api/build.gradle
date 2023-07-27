@@ -4,8 +4,5 @@ jar.enabled = true
 dependencies {
     implementation project(":kl-domain")
     implementation project(":kl-admin")
-    implementation platform('software.amazon.awssdk:bom:2.20.110')
-    implementation 'software.amazon.awssdk:iam:2.20.26'
-    implementation 'software.amazon.awssdk:sso'
-    implementation 'software.amazon.awssdk:ssooidc'
+    implementation project(":kl-common")
 }
