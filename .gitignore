@@ -48,3 +48,5 @@ src/main/resources/oci
 
 kl-common/src/main/resources/
 kl-domain/src/main/resources/
+
+kl-admin/src/main/resources/
