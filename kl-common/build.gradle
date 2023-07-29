@@ -13,4 +13,10 @@ dependencies {
     implementation 'software.amazon.awssdk:iam:2.20.26'
     implementation 'software.amazon.awssdk:sso'
     implementation 'software.amazon.awssdk:ssooidc'
+
+    implementation 'com.oracle.oci.sdk:oci-java-sdk-bom:3.21.0'
+    implementation 'com.oracle.oci.sdk:oci-java-sdk-objectstorage:3.21.0'
+    implementation 'com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey3:3.21.0'
+    implementation 'org.hibernate:hibernate-validator:8.0.1.Final'
+
 }
