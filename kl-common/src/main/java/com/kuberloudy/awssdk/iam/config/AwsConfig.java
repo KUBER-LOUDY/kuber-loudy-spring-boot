@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.profiles.ProfileFile;
 import software.amazon.awssdk.profiles.ProfileFileSupplier;
+import software.amazon.awssdk.profiles.ProfileFileSystemSetting;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.iam.IamClient;
 
@@ -16,17 +17,18 @@ import java.nio.file.Path;
 public class AwsConfig {
 
    Path credentialsFilePath = Path.of("kl-common/src/main/resources/config");
-    Region region = Region.AP_NORTHEAST_2;
+   Region region = Region.AP_NORTHEAST_2;
    ProfileCredentialsProvider provider = ProfileCredentialsProvider
-            .builder()
-            .profileFile(ProfileFileSupplier.reloadWhenModified(credentialsFilePath, ProfileFile.Type.CREDENTIALS))
-            .build();
+           .builder()
+           .profileName("cliplse")
+           .profileFile(ProfileFileSupplier.reloadWhenModified(credentialsFilePath, ProfileFile.Type.CONFIGURATION))
+           .build();
 
-    @Bean
-    public IamClient iamClient() {
-        return IamClient.builder()
-                .credentialsProvider(provider)
-            .region(region)
-            .build();
-    }
+   @Bean
+    public IamClient iamClient(){
+       return IamClient.builder()
+               .credentialsProvider(provider)
+               .region(region)
+               .build();
+   }
 }
