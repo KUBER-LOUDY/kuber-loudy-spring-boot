@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
-import java.nio.file.Path;
 
 @RequiredArgsConstructor
 @Configuration
@@ -19,7 +18,6 @@ public class OciConfig {
 
     public ObjectStorage getObjectStorage() throws IOException {
 
-        //load config file
         final ConfigFileReader.ConfigFile
                 configFile = ConfigFileReader
                 .parse(configurationFilePath, profileName);
@@ -27,7 +25,6 @@ public class OciConfig {
         final ConfigFileAuthenticationDetailsProvider provider =
                 new ConfigFileAuthenticationDetailsProvider(configFile);
 
-        //build and return client
         return ObjectStorageClient.builder()
                 .build(provider);
     }
