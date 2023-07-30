@@ -1,6 +1,5 @@
 package com.kuberloudy.awssdk.iam.config;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
@@ -13,10 +12,9 @@ import software.amazon.awssdk.services.sso.SsoClient;
 import java.nio.file.Path;
 
 @Configuration
-@RequiredArgsConstructor
 public class AwsConfig {
 
-   Path credentialsFilePath = Path.of("kl-common/src/main/resources/config");
+   Path credentialsFilePath = Path.of("kl-common/src/main/resources/awsconfig/config");
    Region region = Region.AP_NORTHEAST_2;
    ProfileCredentialsProvider provider = ProfileCredentialsProvider
            .builder()
