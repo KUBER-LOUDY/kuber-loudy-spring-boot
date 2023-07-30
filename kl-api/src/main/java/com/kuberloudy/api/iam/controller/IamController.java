@@ -30,9 +30,10 @@ public class IamController {
         iamService.transitionRSAtoIam(iamUserKey);
     }
 
-    @GetMapping("/iamList")
-    public void IamList(@RequestParam Long memberId){
-        iamDomainService.getIamlist(memberId);
+    @GetMapping("/iamusers")
+    public void IamUserList(){
+        ListUsersResponse userlist = iam.listUsers();
+        log.info(userlist.users().get(1).userName());
     }
 
 
