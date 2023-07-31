@@ -31,8 +31,8 @@ public class IamController {
     }
 
     @GetMapping("/iamList")
-    public void IamList(@RequestParam Long memberId){
-        iamDomainService.getIamlist(memberId);
+    public ResponseEntity<?> IamList(@RequestParam Long memberId){
+        return new ResponseEntity<>(iamDomainService.getIamlist(memberId), HttpStatus.OK);
     }
 
 

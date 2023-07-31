@@ -6,7 +6,8 @@ import com.kuberloudy.domain.iam.repository.IamRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 @Slf4j
@@ -16,9 +17,9 @@ public class IamDomainService {
 
     private final IamRepository iamRepository;
 
-    @Transactional
-    public void getIamlist(Long memberId){
-        log.info(iamRepository.findByIamId(memberId).toString());
+    public List<Iam> getIamlist(Long memberId){
+        return iamRepository.findAllByMember_MemberId(memberId);
+
     }
 
 }
