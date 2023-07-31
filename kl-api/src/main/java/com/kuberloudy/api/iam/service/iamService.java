@@ -3,6 +3,7 @@ package com.kuberloudy.api.iam.service;
 import com.kuberloudy.api.iam.utils.rsaUtil;
 import com.kuberloudy.api.iam.controller.dto.IamUserKey;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class iamService {

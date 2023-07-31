@@ -34,9 +34,8 @@ public class SecurityConfig {
                         .requestMatchers("/iam/*", "/iam/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .httpBasic(Customizer.withDefaults())
-                .apply(new JwtSecurityConfig(jwtUtil));
-        ;
+                .httpBasic(Customizer.withDefaults());
+                // .apply(new JwtSecurityConfig(jwtUtil));
         return httpSecurity.build();
     }
 

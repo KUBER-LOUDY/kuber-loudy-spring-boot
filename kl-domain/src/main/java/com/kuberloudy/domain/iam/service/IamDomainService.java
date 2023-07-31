@@ -1,7 +1,6 @@
 package com.kuberloudy.domain.iam.service;
 
 
-import com.kuberloudy.domain.iam.entity.Iam;
 import com.kuberloudy.domain.iam.repository.IamRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
