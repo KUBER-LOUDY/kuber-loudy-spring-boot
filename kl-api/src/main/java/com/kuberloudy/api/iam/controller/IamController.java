@@ -33,6 +33,7 @@ public class IamController {
     @GetMapping("/iamList")
     public ResponseEntity<?> IamList(@RequestParam Long memberId){
         return new ResponseEntity<>(iamDomainService.getIamlist(memberId), HttpStatus.OK);
+
     }
 
 
