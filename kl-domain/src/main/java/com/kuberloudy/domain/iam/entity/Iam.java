@@ -2,6 +2,7 @@ package com.kuberloudy.domain.iam.entity;
 
 import com.kuberloudy.domain.member.entity.Member;
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.IdGeneratorType;
 import org.springframework.data.annotation.CreatedDate;
@@ -9,6 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
 @NoArgsConstructor
 @Table(name = "iam_user")
 public class Iam {

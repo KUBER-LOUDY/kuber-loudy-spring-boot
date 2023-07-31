@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authz)->authz
                         .requestMatchers("/**", "/h2-console/**").permitAll()
                         .requestMatchers("/members/login").permitAll()
+                        .requestMatchers("/iam/*", "/iam/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

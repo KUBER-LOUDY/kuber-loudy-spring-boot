@@ -1,7 +1,6 @@
 package com.kuberloudy.domain.member.service;
 
 import com.kuberloudy.domain.member.entity.Member;
-import com.kuberloudy.domain.member.entity.Provider;
 import com.kuberloudy.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,11 +17,10 @@ public class MemberDomainService {
     public Member createMember(
             String email,
             String name,
-            @Nullable String password,
-            Provider provider
+            @Nullable String password
     ) {
         return memberRepository.save(
-                Member.builder().email(email).name(name).provider(provider).password(password).build()
+                Member.builder().email(email).name(name).password(password).build()
         );
     }
 
