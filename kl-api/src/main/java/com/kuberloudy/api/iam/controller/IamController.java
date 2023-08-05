@@ -1,7 +1,11 @@
 package com.kuberloudy.api.iam.controller;
+import com.kuberloudy.api.iam.controller.dto.IamReq;
+import com.kuberloudy.api.iam.controller.dto.IamRes;
 import com.kuberloudy.api.iam.service.iamService;
 import com.kuberloudy.api.iam.controller.dto.IamUserKey;
+import com.kuberloudy.auth.AuthMember;
 import com.kuberloudy.domain.iam.service.IamDomainService;
+import com.kuberloudy.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +40,10 @@ public class IamController {
 
     }
 
+    @PostMapping
+    public ResponseEntity<IamRes> IamCreate(@AuthMember Member member, @RequestBody IamReq req){
+        IamRes res = iamService.createIam(member, req);
+        return new ResponseEntity<>(res, HttpStatus.CREATED);
+    }
 
 }
