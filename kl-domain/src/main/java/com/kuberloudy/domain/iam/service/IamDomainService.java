@@ -30,4 +30,7 @@ public class IamDomainService {
                 .build());
     }
 
+    public List<Iam> findIamList(Member member) {
+        return iamRepository.findAllByMember(member);
+    }
 }

@@ -1,5 +1,6 @@
 package com.kuberloudy.api.iam.service;
 
+import com.kuberloudy.api.iam.controller.dto.IamCreateRes;
 import com.kuberloudy.api.iam.controller.dto.IamReq;
 import com.kuberloudy.api.iam.controller.dto.IamRes;
 import com.kuberloudy.api.iam.utils.rsaUtil;
@@ -18,6 +19,8 @@ import javax.crypto.*;
 import java.io.IOException;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -39,8 +42,13 @@ public class iamService {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    public IamRes createIam(Member member, IamReq req) {
+    public IamCreateRes createIam(Member member, IamReq req) {
         Iam iam = iamDomainService.createIamUser(member, req.getName(), req.getAccessKey(), req.secretKey);
-        return new IamRes(iam);
+        return new IamCreateRes(iam);
+    }
+
+    public List<IamRes> findIamUsers(Member member) {
+        List<Iam> iamEntityList = iamDomainService.findIamList(member);
+        return iamEntityList.stream().map(IamRes::new).collect(Collectors.toList());
     }
 }

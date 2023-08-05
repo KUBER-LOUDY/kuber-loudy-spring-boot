@@ -5,14 +5,21 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class IamRes {
-    private String message;
+
+    private Long id;
     private String name;
+    private LocalDateTime createdDate;
+    private LocalDateTime lastAccessDate;
 
     public IamRes(Iam iam) {
+        this.id = iam.getIamId();
         this.name = iam.getName();
-        this.message = "IAM 유저 토큰을 성공적으로 저장했습니다.";
+        this.createdDate = iam.getPermissionDate();
+        this.lastAccessDate = iam.getLastAccessDate();
     }
 }

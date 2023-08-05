@@ -1,9 +1,11 @@
 package com.kuberloudy.api.iam.controller;
+import com.kuberloudy.api.iam.controller.dto.IamCreateRes;
 import com.kuberloudy.api.iam.controller.dto.IamReq;
 import com.kuberloudy.api.iam.controller.dto.IamRes;
 import com.kuberloudy.api.iam.service.iamService;
 import com.kuberloudy.api.iam.controller.dto.IamUserKey;
 import com.kuberloudy.auth.AuthMember;
+import com.kuberloudy.domain.iam.entity.Iam;
 import com.kuberloudy.domain.iam.service.IamDomainService;
 import com.kuberloudy.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import javax.crypto.*;
 import java.io.IOException;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -41,9 +44,15 @@ public class IamController {
     }
 
     @PostMapping
-    public ResponseEntity<IamRes> IamCreate(@AuthMember Member member, @RequestBody IamReq req){
-        IamRes res = iamService.createIam(member, req);
+    public ResponseEntity<IamCreateRes> IamCreate(@AuthMember Member member, @RequestBody IamReq req){
+        IamCreateRes res = iamService.createIam(member, req);
         return new ResponseEntity<>(res, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<IamRes>> IamListFind(@AuthMember Member member) {
+        List<IamRes> res = iamService.findIamUsers(member);
+        return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
 }
