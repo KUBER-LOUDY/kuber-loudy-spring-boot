@@ -27,15 +27,10 @@ public class Member {
     @Column(length = 200)
     private String email;
 
-    @Enumerated
-    @Column(nullable = false, length = 100)
-    private Provider provider;
-
     @Builder
-    public Member(String name, String email, Provider provider, String password) {
+    public Member(String name, String email, String password) {
         this.name = name;
         this.email = email;
-        this.provider = provider;
         this.password = password;
     }
 }

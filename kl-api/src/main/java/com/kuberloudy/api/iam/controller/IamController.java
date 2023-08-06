@@ -1,8 +1,13 @@
 package com.kuberloudy.api.iam.controller;
-
-import com.kuberloudy.api.iam.controller.dto.*;
+import com.kuberloudy.api.iam.controller.dto.IamCreateRes;
+import com.kuberloudy.api.iam.controller.dto.IamReq;
+import com.kuberloudy.api.iam.controller.dto.IamRes;
 import com.kuberloudy.api.iam.service.iamService;
 import com.kuberloudy.api.iam.controller.dto.IamUserKey;
+import com.kuberloudy.auth.AuthMember;
+import com.kuberloudy.domain.iam.entity.Iam;
+import com.kuberloudy.domain.iam.service.IamDomainService;
+import com.kuberloudy.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +17,14 @@ import javax.crypto.*;
 import java.io.IOException;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/iam",produces = "application/json; charset=utf8")
 public class IamController {
     private final iamService iamService;
+    private final IamDomainService iamDomainService;
 
     @PostMapping("/key-to-rsa")
     public ResponseEntity<?> KeyToRSA(@RequestBody IamUserKey iamUserKey) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
@@ -30,10 +37,22 @@ public class IamController {
         iamService.transitionRSAtoIam(iamUserKey);
     }
 
-    @GetMapping("/iamusers")
-    public void IamUserList(){
+    @GetMapping("/iamList")
+    public ResponseEntity<?> IamList(@RequestParam Long memberId){
+        return new ResponseEntity<>(iamDomainService.getIamlist(memberId), HttpStatus.OK);
 
+    }
 
+    @PostMapping
+    public ResponseEntity<IamCreateRes> IamCreate(@AuthMember Member member, @RequestBody IamReq req){
+        IamCreateRes res = iamService.createIam(member, req);
+        return new ResponseEntity<>(res, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<IamRes>> IamListFind(@AuthMember Member member) {
+        List<IamRes> res = iamService.findIamUsers(member);
+        return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
 }

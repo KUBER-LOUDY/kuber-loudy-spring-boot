@@ -7,6 +7,16 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
     implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
     implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
-
     implementation project(":kl-domain")
+
+    implementation platform('software.amazon.awssdk:bom:2.20.110')
+    implementation 'software.amazon.awssdk:iam:2.20.26'
+    implementation 'software.amazon.awssdk:sso'
+    implementation 'software.amazon.awssdk:ssooidc'
+
+    implementation 'com.oracle.oci.sdk:oci-java-sdk-bom:3.21.0'
+    implementation 'com.oracle.oci.sdk:oci-java-sdk-objectstorage:3.21.0'
+    implementation 'com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey3:3.21.0'
+    implementation 'org.hibernate:hibernate-validator:8.0.1.Final'
+
 }

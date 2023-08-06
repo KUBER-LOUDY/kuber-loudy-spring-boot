@@ -4,7 +4,6 @@ import com.kuberloudy.api.member.dto.LogInReq;
 import com.kuberloudy.api.member.dto.MemberReq;
 import com.kuberloudy.api.member.dto.MemberRes;
 import com.kuberloudy.domain.member.entity.Member;
-import com.kuberloudy.domain.member.entity.Provider;
 import com.kuberloudy.domain.member.service.MemberDomainService;
 import com.kuberloudy.jwt.JwtService;
 import com.kuberloudy.jwt.TokenRes;
@@ -28,8 +27,7 @@ public class MemberService {
         Member member = memberDomainService.createMember(
                 memberReq.getEmail(),
                 memberReq.getName(),
-                jwtService.encryptPassword(memberReq.getPassword()),
-                Provider.valueOf(memberReq.getProvider())
+                jwtService.encryptPassword(memberReq.getPassword())
         );
         return new MemberRes(memberReq.getName());
     }

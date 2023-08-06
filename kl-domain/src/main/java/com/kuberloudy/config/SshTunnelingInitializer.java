@@ -59,7 +59,7 @@ public class SshTunnelingInitializer {
             log.info("success connecting ssh connection");
 
             log.info("start forwarding");
-            forwardedPort = session.setPortForwardingL(0,"10.0.1.177",3306);
+            forwardedPort = session.setPortForwardingL(0,"10.0.1.2",3306);
             log.info("successfully connected to database");
 
         } catch (JSchException e){
