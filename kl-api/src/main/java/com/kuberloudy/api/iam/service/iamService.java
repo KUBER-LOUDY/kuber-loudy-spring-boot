@@ -10,6 +10,7 @@ import com.kuberloudy.domain.iam.service.IamDomainService;
 import com.kuberloudy.domain.member.entity.Member;
 import com.kuberloudy.domain.member.service.MemberDomainService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class iamService {
