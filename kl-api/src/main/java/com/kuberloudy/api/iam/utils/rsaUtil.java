@@ -1,4 +1,4 @@
-package com.kuberloudy.api.utils;
+package com.kuberloudy.api.iam.utils;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
