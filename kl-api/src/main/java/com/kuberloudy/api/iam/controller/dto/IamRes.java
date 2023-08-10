@@ -13,12 +13,17 @@ public class IamRes {
 
     private Long id;
     private String name;
+
+    private String accessKey;
+    private String secretKey;
     private LocalDateTime createdDate;
     private LocalDateTime lastAccessDate;
 
     public IamRes(Iam iam) {
         this.id = iam.getIamId();
         this.name = iam.getName();
+        this.accessKey = iam.getIamAccessKey();
+        this.secretKey = iam.getIamSecretKey();
         this.createdDate = iam.getPermissionDate();
         this.lastAccessDate = iam.getLastAccessDate();
     }
