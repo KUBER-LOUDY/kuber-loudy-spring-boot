@@ -2,6 +2,7 @@ package com.kuberloudy.awssdk.iam.controller;
 
 import com.kuberloudy.awssdk.iam.service.AwsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +13,12 @@ public class AWSController {
 
     private final AwsService awsService;
     //Iam 자격 확인
-  /*  @GetMapping("/client")
-    public ResponseEntity<SsoClient> SsoClient(){
-        return new ResponseEntity<SsoClient>(awsService.getSsoClient(), HttpStatus.OK);
-    }*/
-
-
+   @GetMapping("/ssoclient")
+    public void ssoClient(){
+       awsService.getssoClient();
+    }
+    @GetMapping("/iamclient")
+    public void iamClient(){
+       awsService.IamUserList();
+    }
 }
